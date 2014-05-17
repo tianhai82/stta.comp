@@ -1,0 +1,39 @@
+application: sttacomp
+version: 1
+runtime: go
+api_version: go1
+
+handlers:
+- url: /robots.txt
+  static_files: /robots.txt
+  upload: /robots.txt
+
+- url: /sitemap.xml
+  static_files: sitemap.xml
+  upload: sitemap.xml
+
+- url: /favicon.ico
+  static_files: images/favicon.ico
+  upload: images/favicon.ico
+
+- url: /images
+  static_dir: images
+
+- url: /template
+  static_dir: html/template
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /admin/(.*\.html)
+  mime_type: text/html
+  static_files: html/admin/\1
+  upload: html/admin/(.*\.html)
+  login: admin
+  secure: always
+
+- url: /.*
+  script: _go_app
