@@ -21,7 +21,6 @@
         <script type="text/javascript" src="/js/comp.js"></script>
         <script type="text/javascript" src="/js/admin.js"></script>
     </head>
-
     <body ng-controller="AdminCtrl">
         <div class="container">
             <div class="row">
@@ -31,23 +30,27 @@
                     </div>
                     <div class="col-md-10">
                         <h1>Competition Administrator Page
-                            <br>
-                            <small>Singapore Table Tennis Association</small>
+                        <br>
+                        <small>Singapore Table Tennis Association</small>
                         </h1>
                     </div>
                 </div>
             </div>
-            <h3>Competition List</h3>
-            <div class="row">
-                <button type="button" class="btn btn-primary col-xs-6 col-xs-offset-6 col-md-2 col-md-offset-10" 
+            <tabset>
+            <tab heading="Competitions List">
+                <div class="row">
+                    <button type="button" class="btn btn-primary col-xs-6 col-xs-offset-6 col-md-2 col-md-offset-10"
                         ng-click="addCompetition()">New Competition </button>
-            </div>
-            <div class="row">
-                <smart-table class="table table-hover" config="globalConfig" 
-                             columns="columnCollection" rows="rowCollection"></smart-table>
-            </div>
-
-
+                </div>
+                <div class="row">
+                    <smart-table class="table table-hover" config="globalConfig"
+                    columns="columnCollection" rows="rowCollection"></smart-table>
+                </div>
+            </tab>
+            <tab heading="Players List">
+                To Be Created
+            </tab>
+            </tabset>
         </div>
     </body>
 </html>

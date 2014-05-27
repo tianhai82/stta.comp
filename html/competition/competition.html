@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="SttaApp">
+<html lang="en" ng-app="CompApp">
     <head>
         <meta charset="utf-8">
-        <title>STTA Competition Creation</title>
+        <title>STTA Competition Entries Recording</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -22,7 +22,7 @@
         <script type="text/javascript" src="/js/admin.js"></script>
     </head>
 
-    <body ng-controller="AdminCtrl">
+    <body ng-controller="CompCtrl">
         <div class="container">
             <div class="row">
                 <div class="page-header">
@@ -30,24 +30,25 @@
                         <img src="/images/logo.png" alt="logo" class="img-responsive">
                     </div>
                     <div class="col-md-10">
-                        <h1>Competition Administrator Page
+                        <h1>{{.Title}}
                             <br>
                             <small>Singapore Table Tennis Association</small>
                         </h1>
                     </div>
                 </div>
             </div>
-            <h3>Competition List</h3>
+            <h3>Players Entry List</h3>
             <div class="row">
                 <button type="button" class="btn btn-primary col-xs-6 col-xs-offset-6 col-md-2 col-md-offset-10" 
-                        ng-click="addCompetition()">New Competition </button>
+                        ng-click="addEntry()">New Entry </button>
             </div>
             <div class="row">
                 <smart-table class="table table-hover" config="globalConfig" 
                              columns="columnCollection" rows="rowCollection"></smart-table>
             </div>
-
-
+            <div hidden id="competitionDetails">
+                {{.Competition}}
+            </div>
         </div>
     </body>
 </html>

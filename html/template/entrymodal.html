@@ -1,0 +1,90 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>Personal Details</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="NRIC" 
+                           ng-model="registration.playerParticipating.nric">
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-6">
+                    <input type="text" class="form-control"  placeholder="Name" 
+                           ng-model="registration.playerParticipating.name">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control"  placeholder="Chinese Name" 
+                           ng-model="registration.playerParticipating.chineseName">
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-6">
+                    <p class="input-group">
+                        <input placeholder="Date of Birth" type="text"  datepicker-popup="dd-MMMM-yyyy" class="form-control" ng-model="registration.playerParticipating.dob" is-open="dt.opened" min-date="dt.minDate" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="registration.playerParticipating.sex" btn-radio="'male'">Male</label>
+                        <label class="btn btn-primary" ng-model="registration.playerParticipating.sex" btn-radio="'female'">Female</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Mobile Number" 
+                           ng-model="registration.playerParticipating.mobileNo">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Home Number" 
+                           ng-model="registration.playerParticipating.homeNo">
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="Address" 
+                           ng-model="registration.playerParticipating.address">
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-md-6">
+                    <input type="email" class="form-control" placeholder="Email" 
+                           ng-model="registration.playerParticipating.email">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="School" 
+                           ng-model="registration.playerParticipating.school">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>Categories</h4>
+            <div class="row">
+                <ul class="list-group col-md-6">
+                    <li class="list-group-item" ng-repeat="mCategory in competition.maleCategories">
+                        <input type="checkbox" ng-model="mCategory.selected"> {{mCategory.name}} 
+                    </li>
+                </ul>
+                <ul class="list-group col-md-6">
+                    <li class="list-group-item" ng-repeat="fCategory in competition.femaleCategories">
+                        <input type="checkbox" ng-model="fCategory.selected"> {{fCategory.name}} 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" ng-click="delete()" ng-show="isEdit">Delete Competition</button>
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

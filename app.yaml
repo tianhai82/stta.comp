@@ -8,6 +8,12 @@ handlers:
   static_files: /robots.txt
   upload: /robots.txt
 
+- url: /
+  static_files: index.html
+  upload: index.html
+  login: admin
+  secure: always
+
 - url: /sitemap.xml
   static_files: sitemap.xml
   upload: sitemap.xml

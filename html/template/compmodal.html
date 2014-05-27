@@ -1,0 +1,101 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="competitionInput">Competition</label>
+            <input type="text" class="form-control" id="competitionInput" placeholder="Competition Name" 
+                   ng-model="competition.name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="registrationDeadlineInput">Registration Deadline</label>
+            <p class="input-group">
+                <input placeholder="Date" type="text" id="registrationDeadlineInput" datepicker-popup="dd-MMMM-yyyy" class="form-control" ng-model="competition.registrationDeadline" is-open="dt.opened" min-date="dt.minDate" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>Categories</h4>
+            <div class="row">
+                <ul class="list-group col-md-6">
+                    <li class="list-group-item" ng-repeat="mCategory in competition.maleCategories">
+                        <input type="checkbox" ng-model="mCategory.selected"> {{mCategory.name}} 
+                    </li>
+                </ul>
+                <ul class="list-group col-md-6">
+                    <li class="list-group-item" ng-repeat="fCategory in competition.femaleCategories">
+                        <input type="checkbox" ng-model="fCategory.selected"> {{fCategory.name}} 
+                    </li>
+                </ul>
+            </div>
+<!--            <div class="well well-small">
+                <form ng-submit="addCat()">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" ng-model="newCat.name" class="form-control"
+                                   placeholder="Category">
+                        </div>
+                        <div class="btn-group col-md-6">
+                            <label class="btn btn-primary" ng-model="newCat.sex" btn-radio="'male'">Male</label>
+                            <label class="btn btn-warning" ng-model="newCat.sex" btn-radio="'female'">Female</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="btn-group col-md-6">
+                            <label class="btn btn-primary" ng-model="newCat.beforeAfter" btn-radio="'before'">Before</label>
+                            <label class="btn btn-warning" ng-model="newCat.beforeAfter" btn-radio="'after'">After</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="date" ng-model="newCat.dob" class="form-control"
+                                   placeholder="D.O.B.">
+                        </div>
+                    </div>
+
+                    <input class="btn-primary col-md-offset-10 col-md-2" type="submit" value="add">
+                </form>
+            </div>-->
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>Competition Administrator</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Google Account</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="admin in competition.admins| orderBy:'name'">
+                        <td>{{admin.name}}</td>
+                        <td>{{admin.email}}</td>
+                        <td><a href="#" ng-click="removeAdmin($index)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<div class="row">-->
+            <form ng-submit="addAdmin()">
+                <input type="text" ng-model="newAdmin.name" class="col-md-4"
+                       placeholder="Name">
+                <input type="email" ng-model="newAdmin.email" class="col-md-5"
+                       placeholder="Gmail">
+                <input class="btn-primary col-md-2" type="submit" value="add">
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" ng-click="delete()" ng-show="isEdit">Delete Competition</button>
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
